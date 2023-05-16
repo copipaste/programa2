@@ -1,13 +1,18 @@
 @extends('adminlte::page')
 
 
-
 @section('content_header')
-    <h1 class="m-0 text-dark">registrar pago</h1>
+    <h1 class="m-0 text-dark">editar pago</h1>
 @stop
 
 @section('content')
-<form method="POST" action = "{{route('sauna.store')}}">
+
+@if (session('mensaje'))
+    <div class="alert alert-success">
+        <strong>{{session('mensaje')}}</strong>
+    </div>
+@endif
+<form method="PUT" action = "{{route('sauna.update',$sauna)}}">
     @csrf
             <div>
                     <div class="row">
@@ -39,7 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <x-adminlte-button class="btn-flat" type="submit" label="Submit" theme="success" icon="fas fa-lg fa-save"/>
+                            <x-adminlte-button class="btn-flat" type="submit" label="Actualizar" theme="success" icon="fas fa-lg fa-save"/>
                         </div>
                         
                     </div>

@@ -18,6 +18,8 @@ class SaunaController extends Controller
         'id',
         'Monto',
         'Fecha',
+        'Acciones',
+        'Acciones',
         
     ];
     return view('sauna.index',compact('saunas','heads'));
@@ -36,7 +38,12 @@ class SaunaController extends Controller
      */
     public function store(Request $request) //para guardar en la bd el nuevo registro 
     {
-        //
+        request()->validate([
+            'monto' => 'required',
+            'date' => 'required',
+        ]); //validacion de los campos osea que tienen que tener algun valor 
+        $sauna = sauna::create($request->all());
+        return redirect()->route('sauna.index', $sauna);        //estoy invocando la ruta sauna.index
     }
 
     /**
@@ -44,23 +51,28 @@ class SaunaController extends Controller
      */
     public function show(string $id)    //visualizar un registro a detalle
     {
-        //
+     //   return view('sauna.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)  //para abrir un formulario para editar un registro
+    public function edit(Sauna $sauna)  //para abrir un formulario para editar un registro
     {
-        //
+        return view('sauna.edit',compact('sauna'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id) //para actualizar un registro en la bd
+    public function update(Request $request, Sauna $sauna) //para actualizar un registro en la bd
     {
-        //
+        request()->validate([
+            'monto' => 'required',
+            'date' => 'required',
+        ]); //validacion de los campos osea que tienen que tener algun valor 
+        $sauna->update($request->all());
+        return redirect()->route('sauna.edit', $sauna)->with('mensaje','success');        //estoy invocando la ruta sauna.index
     }
 
     /**
