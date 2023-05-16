@@ -9,12 +9,9 @@
 @section('content')
 <div>
 
+
     <div class="row">
-        <x-adminlte-input name="name" label="nombre" placeholder="ingrese nombre"
-            fgroup-class="col-md-6" disable-feedback/>
-    </div>
-    <div class="row">
-        <x-adminlte-input name="iNum" label="Number" placeholder="number" type="number"
+        <x-adminlte-input name="monto" label="monto" placeholder="monto" type="number"
         fgroup-class="col-md-6">
             <x-slot name="appendSlot">
                 <div class="input-group-text bg-dark">
@@ -28,7 +25,9 @@
         @php
         $config = ['format' => 'YYYY-MM-DD'];
         @endphp
-        <x-adminlte-input-date name="idTimeOnly" :config="$config" placeholder="Choose a time..."  
+        <x-adminlte-input-date name="fecha" :config="$config" placeholder="fecha"
+        label="fecha"
+          
         fgroup-class="col-md-6">
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-info">
@@ -37,6 +36,12 @@
             </x-slot>
         </x-adminlte-input-date>
 
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <x-adminlte-button label="registrar" theme="primary" icon="fas fa-save"/>
+        </div>
+        
     </div>
 
 
