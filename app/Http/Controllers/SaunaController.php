@@ -57,8 +57,9 @@ class SaunaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sauna $sauna)  //para abrir un formulario para editar un registro
+    public function edit($id)  //para abrir un formulario para editar un registro
     {
+        $sauna = Sauna::find($id);
         return view('sauna.edit',compact('sauna'));
     }
 
@@ -72,7 +73,7 @@ class SaunaController extends Controller
             'date' => 'required',
         ]); //validacion de los campos osea que tienen que tener algun valor 
         $sauna->update($request->all());
-        return redirect()->route('sauna.edit', $sauna)->with('mensaje','success');        //estoy invocando la ruta sauna.index
+        return redirect()->route('sauna.edit', $sauna)->with('mensaje','registro editado correctamente');        //estoy invocando la ruta sauna.index
     }
 
     /**
@@ -80,6 +81,8 @@ class SaunaController extends Controller
      */
     public function destroy(string $id)   //para eliminar un registro de la bd  
     {
-        //
+        $sauna = Sauna::find($id);
+        $sauna->delete();
+        return redirect()->route('sauna.index', $sauna)->with('mensaje','registro eliminado correctamente');        //estoy invocando la ruta sauna.index
     }
 }

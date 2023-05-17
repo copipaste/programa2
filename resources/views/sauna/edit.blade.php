@@ -12,19 +12,20 @@
         <strong>{{session('mensaje')}}</strong>
     </div>
 @endif
-<form method="PUT" action = "{{route('sauna.update',$sauna)}}">
+<form method="POST" action = "{{route('sauna.update',$sauna)}}">
+    @method("PUT")
     @csrf
             <div>
-                    <div class="row">
-                        <x-adminlte-input name="monto" label="monto" placeholder="monto" type="number"
-                        fgroup-class="col-md-6">
+                    <div class="row" >
+                        <x-adminlte-input name="monto" label="monto" placeholder="monto" type="number" fgroup-class="col-md-6" value="{{$sauna->monto}}">
                             <x-slot name="appendSlot">
-                                <div class="input-group-text bg-dark">
-                                    <i class="fas fa-hashtag"></i>
+                                <div class="input-group-text bg-dark" >
+                                    <i class="fas fa-hashtag" ></i>
                                 </div>
                             </x-slot>
                         </x-adminlte-input>
                     </div>
+                    
 
                     <div class="row">
                         @php
@@ -33,7 +34,7 @@
                         <x-adminlte-input-date name="date" :config="$config" placeholder="fecha"
                         label="date"
                         
-                        fgroup-class="col-md-6">
+                        fgroup-class="col-md-6" value="{{$sauna->date}}">
                             <x-slot name="prependSlot">
                                 <div class="input-group-text bg-gradient-info">
                                     <i class="fas fa-clock"></i>

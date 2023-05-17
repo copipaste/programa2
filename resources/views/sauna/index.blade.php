@@ -20,7 +20,7 @@
                     <td width="15px"><a href="{{route('sauna.edit',$sauna)}}" class="btn btn-primary btn-sm">editar</a></td>
                     <td width="15px">
                         <form action="{{route('sauna.destroy',$sauna)}}" method="POST">
-                        @method('delete')
+                        @method('DELETE')
                         @csrf
                         <input type="submit" value = "eliminar" class="btn btn-danger btn-sm">
                         </form>
