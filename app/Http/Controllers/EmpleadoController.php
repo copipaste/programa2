@@ -52,7 +52,7 @@ class EmpleadoController extends Controller
             'telefono' => 'required',
             'direccion' => 'required',
             'email' => 'required',
-            'especialidad' => 'required',
+            'especialidad_id' => 'required',
             'fecha_ingreso' => 'required',
 
         ]); //validacion de los campos osea que tienen que tener algun valor 

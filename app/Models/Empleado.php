@@ -21,7 +21,7 @@ class Empleado extends Model
         'telefono' ,
         'direccion' ,
         'email',
-        'especialidad' ,
+        'especialidad_id' ,
         'fecha_ingreso',
     ];
 
