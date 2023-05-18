@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Gym',
+    'title' => 'GYM',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/almasaeed2010/adminlte/dist/img/loginprueba.png',
+            'path' => 'vendor/adminlte/dist/img/loginprueba.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -130,7 +130,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -316,13 +316,13 @@ return [
             'route'  => 'home',
             'icon' => 'fas fa-fw fa-home',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        // [
+        //     'text'        => 'pages',
+        //     'url'         => 'admin/pages',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
         ['header' => 'CONFIGURACION DE CUENTA'],
         [
             'text' => 'profile',
@@ -372,22 +372,38 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Empleados',
+            'icon'       => 'fas fa-users',
+            'submenu'    => [
+                [
+                    'text' => 'Lista de Empleados',
+                    'icon'       => 'fas fa-list',
+                    'route'  => 'empleado.index'
+                ],
+                [
+                    'text' => 'Registrar Empleado',
+                    'icon'       => 'fas fa-user-plus',
+                    'route'  =>  'empleado.create'
+                ],
+            ]
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        // ['header' => 'labels'],
+        // [
+        //     'text'       => 'important',
+        //     'icon_color' => 'red',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
         [
             'text'       => 'Sauna',
             'icon'       => 'fas fa-users',

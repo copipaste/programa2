@@ -40,7 +40,8 @@ class SaunaController extends Controller
     {
         request()->validate([
             'monto' => 'required',
-            'date' => 'required',
+            'date' => 'required'
+
         ]); //validacion de los campos osea que tienen que tener algun valor 
         $sauna = sauna::create($request->all());
         return redirect()->route('sauna.index', $sauna);        //estoy invocando la ruta sauna.index

@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaunaController;
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\ChangePasswordController;
+use Illuminate\Database\Query\IndexHint;
+
+//---------------------------borrador
+//use App\Http\Controllers\Auth\ChangePasswordController;
+//---------------------------borrador
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +22,7 @@ use App\Http\Controllers\SaunaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -47,3 +54,22 @@ Route::get('/home', function() {
 //})->middleware('auth');
 
 Route::resource('/sauna', SaunaController::class)->names('sauna')->middleware('auth');
+
+Route::resource('/empleado', EmpleadoController::class)->names('empleado')->middleware('auth');
+                            
+
+
+//------------------------------------borrador
+
+// Ruta para mostrar el formulario de cambio de contraseña
+//Route::get('/change-password', [ChangePasswordController::class, 'showChangePasswordForm'])->name('password.change');
+
+// Ruta para procesar la solicitud de cambio de contraseña
+ //Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
+
+
+
+// Ruta para mostrar el formulario de cambio de contraseña
+Route::get('/password/change', [ChangePasswordController::class, 'showChangePasswordForm'])->name('password.change');
+// Ruta para procesar el cambio de contraseña
+Route::post('/password/change', [ChangePasswordController::class, 'changePassword'])->name('password.update');
